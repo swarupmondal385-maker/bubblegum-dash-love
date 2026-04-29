@@ -13,7 +13,50 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-bg': 'var(--gradient-bg)',
+        'gradient-cta': 'var(--gradient-cta)',
+        'gradient-card-pink': 'var(--gradient-card-pink)',
+        'gradient-card-mint': 'var(--gradient-card-mint)',
+        'gradient-card-purple': 'var(--gradient-card-purple)',
+        'gradient-card-yellow': 'var(--gradient-card-yellow)',
+        'gradient-card-peach': 'var(--gradient-card-peach)',
+      },
+      boxShadow: {
+        soft: 'var(--shadow-soft)',
+        card: 'var(--shadow-card)',
+        glow: 'var(--shadow-glow)',
+      },
       colors: {
+        pink: {
+          DEFAULT: 'hsl(var(--pink))',
+          soft: 'hsl(var(--pink-soft))',
+        },
+        purple: {
+          DEFAULT: 'hsl(var(--purple))',
+          soft: 'hsl(var(--purple-soft))',
+        },
+        blue: {
+          DEFAULT: 'hsl(var(--blue))',
+          soft: 'hsl(var(--blue-soft))',
+        },
+        mint: {
+          DEFAULT: 'hsl(var(--mint))',
+          soft: 'hsl(var(--mint-soft))',
+        },
+        yellow: {
+          DEFAULT: 'hsl(var(--yellow))',
+          soft: 'hsl(var(--yellow-soft))',
+        },
+        peach: {
+          DEFAULT: 'hsl(var(--peach))',
+          soft: 'hsl(var(--peach-soft))',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
