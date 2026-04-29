@@ -22,11 +22,14 @@ export default {
         'gradient-cta-warm': 'var(--gradient-cta-warm)',
         'gradient-mint': 'var(--gradient-mint)',
         'gradient-card': 'var(--gradient-card)',
+        'gradient-rainbow': 'var(--gradient-rainbow)',
+        'gradient-cream': 'var(--gradient-cream)',
       },
       boxShadow: {
         soft: 'var(--shadow-soft)',
         glow: 'var(--shadow-glow)',
         card: 'var(--shadow-card)',
+        pop: 'var(--shadow-pop)',
       },
       colors: {
         border: "hsl(var(--border))",
