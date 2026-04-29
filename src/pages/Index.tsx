@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/pixorra/Header';
 import { BottomNav, type Tab } from '@/components/pixorra/BottomNav';
 import { DashView } from '@/components/pixorra/DashView';
@@ -13,6 +13,11 @@ const Index = () => {
   const [tab, setTab] = useState<Tab>('dash');
   const [done, setDone] = useState<Set<string>>(new Set());
 
+  useEffect(() => {
+    document.title = 'Pixorra OS — Sales Operations CRM';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [tab]);
+
   const toggle = (id: string) => {
     setDone((prev) => {
       const next = new Set(prev);
@@ -22,16 +27,16 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen pb-24">
+    <div className="min-h-screen pb-32">
       <Header tasksDone={done.size} />
-      <main className="max-w-2xl mx-auto px-4 py-5">
+      <main className="max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-5">
         <AnimatePresence mode="wait">
           <motion.div
             key={tab}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             {tab === 'dash' && <DashView />}
             {tab === 'ops' && <OpsView done={done} onToggle={toggle} />}
