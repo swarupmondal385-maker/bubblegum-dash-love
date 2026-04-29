@@ -28,11 +28,12 @@ export const DashView = () => {
       <motion.section
         initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative overflow-hidden rounded-3xl p-6 border border-hairline"
+        className="relative overflow-hidden rounded-3xl p-6 border-2 border-white/40 shadow-glow"
       >
-        <div className="absolute inset-0 bg-gradient-aurora opacity-90 animate-aurora-pulse" />
-        <div className="absolute inset-0 grid-bg opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
+        <div className="absolute inset-0 bg-gradient-cta" />
+        <div className="absolute inset-0 bg-gradient-aurora opacity-60 animate-aurora-pulse mix-blend-overlay" />
+        <div className="absolute inset-0 grid-bg opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/15" />
 
         <div className="relative">
           <div className="flex items-center gap-2 mb-4">
