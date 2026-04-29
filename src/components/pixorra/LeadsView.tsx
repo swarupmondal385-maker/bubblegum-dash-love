@@ -58,7 +58,7 @@ export const LeadsView = () => {
                     initial={{ width: 0 }} whileInView={{ width: `${pct}%` }} viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
                     className="h-full"
-                    style={{ background: `linear-gradient(90deg, ${s.color}/60, ${s.color})`, background: s.color }}
+                    style={{ background: s.color, boxShadow: `0 0 8px ${s.color}` }}
                   />
                 </div>
               </div>
