@@ -1,16 +1,50 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Header } from '@/components/pixorra/Header';
+import { BottomNav, type Tab } from '@/components/pixorra/BottomNav';
+import { DashView } from '@/components/pixorra/DashView';
+import { OpsView } from '@/components/pixorra/OpsView';
+import { LeadsView } from '@/components/pixorra/LeadsView';
+import { DataView } from '@/components/pixorra/DataView';
+import { CoachView } from '@/components/pixorra/CoachView';
+import { TeamView } from '@/components/pixorra/TeamView';
+import { AnimatePresence, motion } from 'framer-motion';
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [tab, setTab] = useState<Tab>('dash');
+  const [done, setDone] = useState<Set<string>>(new Set());
+
+  const toggle = (id: string) => {
+    setDone((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen pb-24">
+      <Header tasksDone={done.size} />
+      <main className="max-w-2xl mx-auto px-4 py-5">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+          >
+            {tab === 'dash' && <DashView />}
+            {tab === 'ops' && <OpsView done={done} onToggle={toggle} />}
+            {tab === 'leads' && <LeadsView />}
+            {tab === 'data' && <DataView />}
+            {tab === 'coach' && <CoachView />}
+            {tab === 'team' && <TeamView />}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+      <BottomNav active={tab} onChange={setTab} />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
