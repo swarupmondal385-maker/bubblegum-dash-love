@@ -1,16 +1,16 @@
-import { Home, Target, Database, Bot, Bell, FileText } from 'lucide-react';
+import { Home, ListChecks, Target, Database, Bot, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export type Tab = 'dash' | 'leads' | 'data' | 'coach' | 'reminders' | 'reports';
+export type Tab = 'dash' | 'ops' | 'leads' | 'data' | 'coach' | 'team';
 
 const items: { key: Tab; label: string; icon: React.ElementType }[] = [
   { key: 'dash', label: 'Dash', icon: Home },
+  { key: 'ops', label: 'Ops', icon: ListChecks },
   { key: 'leads', label: 'Leads', icon: Target },
   { key: 'data', label: 'Data', icon: Database },
   { key: 'coach', label: 'Coach', icon: Bot },
-  { key: 'reminders', label: 'Alerts', icon: Bell },
-  { key: 'reports', label: 'Reports', icon: FileText },
+  { key: 'team', label: 'Team', icon: Users },
 ];
 
 export const BottomNav = ({ active, onChange }: { active: Tab; onChange: (t: Tab) => void }) => (
